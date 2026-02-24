@@ -14,15 +14,23 @@ const mainContainer = document.querySelector('main');
 // 1. Counter and Header Update Function
 function calculateCount() {
     const allCards = document.querySelectorAll('.card-container');
+    const msgDiv = document.getElementById('no-jobs-msg');
     const total = allCards.length;
     
-    // Dashboard Card update
+    // Dashboard values update
     availableCount.innerText = total;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectList.length;
 
-    // Header Display logic (8 Jobs / 1 of 8 Jobs)
+    // Header logic update (jemon: 1 of 8 Jobs)
     updateHeaderDisplay(total);
+
+    // No Jobs Available Message Logic
+    if (total === 0) {
+        msgDiv.classList.remove('hidden'); // Message show korbe
+    } else {
+        msgDiv.classList.add('hidden'); // Message hide hobe
+    }
 }
 
 function updateHeaderDisplay(total) {
