@@ -1,7 +1,7 @@
 let interviewList = [];
 let rejectList = [];
 
-const totalDisplay = document.querySelector('#navbar div'); // Header e jekhane "8 Jobs" lekha
+const totalDisplay = document.querySelector('#navbar div');
 const interviewCount = document.getElementById('interview');
 const rejectedCount = document.getElementById('rejected');
 const availableCount = document.getElementById('available');
@@ -17,19 +17,16 @@ function calculateCount() {
     const msgDiv = document.getElementById('no-jobs-msg');
     const total = allCards.length;
     
-    // Dashboard values update
     availableCount.innerText = total;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectList.length;
 
-    // Header logic update (jemon: 1 of 8 Jobs)
     updateHeaderDisplay(total);
 
-    // No Jobs Available Message Logic
     if (total === 0) {
-        msgDiv.classList.remove('hidden'); // Message show korbe
+        msgDiv.classList.remove('hidden');
     } else {
-        msgDiv.classList.add('hidden'); // Message hide hobe
+        msgDiv.classList.add('hidden');
     }
 }
 
@@ -65,7 +62,6 @@ function toggleStyle(id) {
         }
     });
     
-    // Tab change hole header update hobe
     const total = document.querySelectorAll('.card-container').length;
     updateHeaderDisplay(total);
 }
@@ -106,5 +102,4 @@ mainContainer.addEventListener('click', function(event) {
     calculateCount();
 });
 
-// Initial Load
 calculateCount();
